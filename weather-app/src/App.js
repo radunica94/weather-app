@@ -45,8 +45,6 @@ onFormSubmit(e){
     getCurrentWeather(this.state.location).then(res => {
         this.setState({
             temp: res.data.current.temp_c,
-            city: res.data.location.name,
-            description: res.data.current.condition.text,
             icon: res.data.current.condition.icon
        });
        console.log(res);
