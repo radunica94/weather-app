@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-// import { getCurrentWeather } from '../api/weather-api';
+import { getCurrentWeather } from '../api/weather-api';
 
 class SearchBar extends Component {
-    // constructor(props) {
-    //     super(props);        
-    // }
+    constructor(props) {
+        super(props);        
+    }
 
     onInputChange(e){
         this.props.inputChange(e);
     }
- 
+
     onFormSubmit(e){
         e.preventDefault();
         this.props.formSubmitted();
@@ -36,5 +36,5 @@ class SearchBar extends Component {
         );
     }
 }
- 
+
 export default SearchBar;
