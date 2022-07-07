@@ -9,7 +9,7 @@ class CurrentWeather extends Component {
         };
         const temperature = this.props.currentTemperature;
         const time = this.props.currentTime;
-        const air_quality = this.props.currentAirQuality;
+        // const air_quality = this.props.currentAirQuality;
         const precipitation_index = this.props.currentPrecipitationIndex;
         const wind = this.props.currentWind;
         const pressure = this.props.currentPressure;
