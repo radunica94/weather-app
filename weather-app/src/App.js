@@ -75,7 +75,7 @@ onFormSubmit(e){
           </div>
           <div>
             <ForecastWeather 
-          
+              currentTime={this.state.time}
             />
           </div>
         </main>
