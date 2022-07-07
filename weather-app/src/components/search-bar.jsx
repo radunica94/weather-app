@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
-import { getCurrentWeather } from '../api/weather-api';
+import React, {useState} from 'react';
+import PropType from 'prop-types';
 
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);        
-    }
+const SearchBar = ({submitSearch}) => {
+    
+    const[location,setLocation] = useState('');
 
-    onInputChange(e){
-        this.props.inputChange(e);
-    }
-
-    onFormSubmit(e){
+    const onSubmit = e => {
         e.preventDefault();
-        this.props.formSubmitted();
-    }
+        if(!location || location === '') return;
+        submitSearch(location);
+    }    
 
-    render() { 
-        const location = this.props.location;
-
-        return (
-            <div className="search-bar">
-                <form className='search-form' onSubmit={(e) => this.onFormSubmit(e)}>
-                    <button className='search-form-btn' type="submit">
-                        Search
-                    </button>
-                    <input 
-                        className='search-form-input' 
-                        id='search' 
-                        name='search'
-                        value={location}
-                        onChange = {(e) => this.onInputChange(e)}
-                    />
-                </form>
-            </div>
-        );
-    }
+    return (
+        <form className='search-form' onSubmit={onSubmit}>                
+            <input 
+                className='search-form-input' 
+                id='search' 
+                name='search'
+                placeholder='Search for location'
+                value={location}
+                onChange={e => setLocation(e.target.value)}
+            />
+            <button className='search-form-btn' type="submit">
+                Search
+            </button>
+        </form>
+    );
 }
+
+SearchBar.protoType = {
+    submitSearch: PropType.func.isRequired,
+};
 
 export default SearchBar;

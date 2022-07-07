@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class CurrentWeather extends Component {
-    state = {  } 
-    render() { 
-        const image = this.props.currentIcon;
-        const temperature = this.props.currentTemperature;
-        const time = this.props.currentTime;
-        const air_quality = this.props.currentAirQuality;
-        const precipitation_index = this.props.currentPrecipitationIndex;
-        const wind = this.props.currentWind;
-        const pressure = this.props.currentPressure;
-        const uv_index = this.props.currentUvIndex;
-        return (
+function CurrentWeather(){
+    //const[location,setLocation] = useState('');
+    const[image,setImage] = useState('');
+    const[temperature,setTemperature] = useState('');
+    const[time,setTime] = useState('');
+    const[air_quality,setAirQuality] = useState('');
+    const[precipitation_index,setPrecipitationIndex] = useState('');
+    const[wind,setWind] = useState('');
+    const[pressure,setPressure] = useState('');
+    const[uv_index,setUvIndex] = useState('');
+        
+    return (
         <div className='current-weather'>
             <div>
                 <h5>Temperature</h5>
@@ -42,7 +42,7 @@ class CurrentWeather extends Component {
             </div>                
         </div>
     );
-    }
+    
 }
  
 export default CurrentWeather;
