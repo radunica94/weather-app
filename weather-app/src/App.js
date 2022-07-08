@@ -6,7 +6,6 @@ import { getCurrentWeather } from './api/weather-api';
 import ForecastWeather from './components/forecast-weather';
 import { getDaysForecast } from './api/weather-api';
 import { getHistory } from './api/weather-api';
-import WeatherHistory from './components/weather-history';
 
 function App() {
   
@@ -16,25 +15,23 @@ function App() {
     precipitation_index: '',
     wind: '',
     icon: '',
-    time: '',
     pressure: '',
     moonPhase: '',
     day: '',
     uv_index: ''
   });
- 
-  const onInputChange = (event) => {
-    this.setState({
-        location: event.target.value
+  const onInputChange = (e) => {
+    setState({
+        location: e.target.value
     });
+    console.log(state.location);
   }
 
-  const onSubmit = (event) =>{
+  const onSubmit = () =>{
     getCurrentWeather(state.location).then(res => {
       setState({
           location: res.data.location.name,
           temp: res.data.current.temp_c,
-          time: res.data.location.localtime,
           icon: res.data.current.condition.icon,
           air_quality: res.data.current.air_quality_index,
           precipitation_index: res.data.current.precip_in,
@@ -53,7 +50,11 @@ function App() {
       });
       console.log(res);
       });
-      getHistory(state.location).then(res => {});
+      getHistory(state.location).then(res => {
+        setState({
+
+        });
+      });
   }
   return (
     <div className="App">
@@ -66,29 +67,22 @@ function App() {
       </header>
       <main>
         <div>
-          <CurrentWeather 
-            currentTime={state.time}
-            currentIcon={state.icon}
-            currentTemperature={state.temp} 
-            currentAirQuality={state.air_quality}
-            currentPrecipitationIndex={state.precipitation_index}
-            currentWind={state.wind}
-            currentPressure={state.pressure}
-            currentUvIndex={state.uv_index}
+          <CurrentWeather    
+            temp={state.temp}        
+            icon={state.icon}            
+            precipitation_index={state.precipitation_index}
+            wind={state.wind}
+            pressure={state.pressure}
+            uv_index={state.uv_index}
           />
         </div>
         <div>
           <ForecastWeather 
-            daysOfWeek={state.day}
-            currentTemperature={state.temp}
-            currentIcon={state.icon}
-            currentMoonPhase={state.moonPhase}
+            day={state.day}
+            temp={state.temp}
+            icon={state.icon}
+            moonPhase={state.moonPhase}
           />          
-        </div>
-        <div>
-          <WeatherHistory
-          
-          />
         </div>
       </main>
     </div>

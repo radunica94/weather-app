@@ -1,23 +1,23 @@
 import axios from 'axios';
  
-const BASE_URL = 'http://api.weatherapi.com/v1'; 
+
 
 // const REACT_APP_API_KEY='9f3a5ae1afe244179cc100933220707';
 function getCurrentWeather(location){
     return axios.get(
-        `${BASE_URL}/current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&aqi=yes`
+        `/current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&aqi=yes`
     );
 }
 
 function getDaysForecast(location){
     return axios.get(
-        `${BASE_URL}/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
+        `/forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
     );
 }
 
 function getHistory(location){
     return axios.get(
-        `${BASE_URL}/history.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&dt=2010-01-01`    
+        `/history.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&dt=2010-01-01`    
     );
 }
 

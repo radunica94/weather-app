@@ -1,25 +1,24 @@
 import React, {useState} from 'react';
 import PropType from 'prop-types';
 
-const SearchBar = ({submitSearch}) => {    
+function SearchBar(props) {    
     
     const[location,setLocation] = useState('');
-
-    const onSubmit = e => {
+    
+    const handleSubmit  = (e) => {
         e.preventDefault();
-        if(!location || location === '') return;
-        submitSearch(location);
+        console.log(`${location}`);
     }    
 
     return (
-        <form className='search-form' onSubmit={onSubmit}>                
+        <form className='search-form' onSubmit={handleSubmit }>                
             <input 
                 className='search-form-input' 
                 id='search' 
                 name='search'
                 placeholder='Search for location'
                 value={location}
-                onChange={e => setLocation(e.target.value)}
+                onChange={e => console.log(setLocation(e.target.value))}
             />
             <button className='search-form-btn' type="submit">
                 Search

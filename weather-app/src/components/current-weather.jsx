@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-function CurrentWeather(){
+function CurrentWeather(props){
     
     const[state,setState] = useState({
-        image: '',
+        icon: '',
         temperature: '',
-        time: '',
         wind: '',
         pressure: '',        
         uv_index: ''
       });    
+      console.log(props);
     return (
         <div className='current-weather'>
             <div>
@@ -17,12 +17,8 @@ function CurrentWeather(){
                 <p>{state.temperature}</p> 
             </div>                   
             <div>
-                <img width='64' src={state.image} alt={state.image}/>
-            </div>
-            <div>
-                <h5>Time</h5>
-                <p className='current-weather-time'>Time: {state.time}</p>
-            </div>
+                <img width='64' src={state.icon} alt={state.icon}/>
+            </div>           
             <div>
                 <h5>Precipitation Index</h5>
                 <p>{state.precipitation_index}</p>
