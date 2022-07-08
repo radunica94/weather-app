@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropType from 'prop-types';
 
-const SearchBar = ({submitSearch}) => {
+const SearchBar = ({submitSearch}) => {    
     
     const[location,setLocation] = useState('');
 

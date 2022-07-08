@@ -10,20 +10,19 @@ import WeatherHistory from './components/weather-history';
 
 function App() {
   
-  const[location,setLocation] = useState('');
-  const[temp,setTemp] = useState('');
-  const[air_quality,setAir_quality] = useState('');
-  const[precipitation_index,setPrecipitation_index] = useState('');
-  const[wind,setWind] = useState('');
-  const[icon,setIcon] = useState('');
-  const[time,setTime] = useState('');
-  const[pressure,setPressure] = useState('');
-  const[moonPhase,setMoonPhase] = useState('');
-  const[day,setDay] = useState('');
-  const[uv_index,setUv_index] = useState('');      
-        
-
-
+  const[state,setState] = useState({
+    location: '',
+    temp: '',
+    precipitation_index: '',
+    wind: '',
+    icon: '',
+    time: '',
+    pressure: '',
+    moonPhase: '',
+    day: '',
+    uv_index: ''
+  });
+ 
   const onInputChange = (event) => {
     this.setState({
         location: event.target.value
@@ -31,22 +30,22 @@ function App() {
   }
 
   const onSubmit = (event) =>{
-    getCurrentWeather({location}).then(res => {
-      this.setState({
-            location: res.data.location.name,
-            temp: res.data.current.temp_c,
-            time: res.data.location.localtime,
-            icon: res.data.current.condition.icon,
-            air_quality: res.data.current.air_quality_index,
-            precipitation_index: res.data.current.precip_in,
-            wind: res.data.current.wind_kph,
-            pressure: res.data.current.pressure_in,
-            uv_index: res.data.current.uv            
+    getCurrentWeather(state.location).then(res => {
+      setState({
+          location: res.data.location.name,
+          temp: res.data.current.temp_c,
+          time: res.data.location.localtime,
+          icon: res.data.current.condition.icon,
+          air_quality: res.data.current.air_quality_index,
+          precipitation_index: res.data.current.precip_in,
+          wind: res.data.current.wind_kph,
+          pressure: res.data.current.pressure_in,
+          uv_index: res.data.current.uv      
       });
       console.log(res);
   });
-      getDaysForecast({location}).then(res => {
-        this.setState({
+      getDaysForecast(state.location).then(res => {
+        setState({
             temp: res.data.current.temp_c,
             icon: res.data.current.condition.icon,
             day: res.data.forecast.forecastday.map(i => console.log(i.date)),
@@ -54,43 +53,44 @@ function App() {
       });
       console.log(res);
       });
+      getHistory(state.location).then(res => {});
   }
   return (
     <div className="App">
       <header>
           <SearchBar 
-              location={this.state.location} 
-              inputChange={(e) => this.onInputChange(e)}
-              onSubmit={() => this.onSubmit()} 
+              location={state.location} 
+              inputChange={(e) => onInputChange(e)}
+              onSubmit={() => onSubmit()} 
            />          
       </header>
       <main>
         <div>
           <CurrentWeather 
-            currentTime={this.state.time}
-            currentIcon={this.state.icon}
-            currentTemperature={this.state.temp} 
-            currentAirQuality={this.state.air_quality}
-            currentPrecipitationIndex={this.state.precipitation_index}
-            currentWind={this.state.wind}
-            currentPressure={this.state.pressure}
-            currentUvIndex={this.state.uv_index}
+            currentTime={state.time}
+            currentIcon={state.icon}
+            currentTemperature={state.temp} 
+            currentAirQuality={state.air_quality}
+            currentPrecipitationIndex={state.precipitation_index}
+            currentWind={state.wind}
+            currentPressure={state.pressure}
+            currentUvIndex={state.uv_index}
           />
         </div>
         <div>
           <ForecastWeather 
-            daysOfWeek={this.state.day}
-            currentTemperature={this.state.temp}
-            currentIcon={this.state.icon}
-            currentMoonPhase={this.state.moonPhase}
+            daysOfWeek={state.day}
+            currentTemperature={state.temp}
+            currentIcon={state.icon}
+            currentMoonPhase={state.moonPhase}
+          />          
+        </div>
+        <div>
+          <WeatherHistory
+          
           />
         </div>
       </main>
-      <footer>
-        <WeatherHistory
-        
-        />
-      </footer>
     </div>
   );
 }
