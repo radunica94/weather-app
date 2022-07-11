@@ -1,34 +1,61 @@
 import React, {useState} from 'react';
-import PropType from 'prop-types';
+import './search-bar.scss';
+import { UilSearch } from '@iconscout/react-unicons';
 
-function SearchBar(props) {    
+function SearchBar({setQuery, units,setUnits}){    
     
-    const[location,setLocation] = useState('');
+    const[location, setLocation] = useState('');
     
-    const handleSubmit  = (e) => {
-        e.preventDefault();
-        console.log(`${location}`);
-    }    
+    const handleUnitsChange = (e) => {
+        const selectedUnit = e.currentLocation.name;
+        if(units !== selectedUnit){
+            setUnits(selectedUnit);
+        }
+    };
+
+    const handleSearchClick = () => {
+        if(location !== ''){
+            setQuery({q: location});
+        }
+    };
 
     return (
-        <form className='search-form' onSubmit={handleSubmit }>                
-            <input 
-                className='search-form-input' 
-                id='search' 
-                name='search'
-                placeholder='Search for location'
-                value={location}
-                onChange={e => console.log(setLocation(e.target.value))}
-            />
-            <button className='search-form-btn' type="submit">
-                Search
-            </button>
-        </form>
+        <div className='container'>
+            
+            <div>                           
+                <input 
+                    value={location}
+                    onChange={e => setLocation(e.currentLocation.value)}
+                    type='text'
+                    placeholder='Search for a Location'
+                    className='search-bar__input'                        
+                />
+                <UilSearch 
+                    className='search-bar__search-icon'
+                    onClick={handleSearchClick}
+                    >
+                    Search
+                </UilSearch>                       
+            </div>
+            <div>
+                <button
+                    className='search-bar__celsius-button'
+                    onClick={handleUnitsChange}
+                >
+                °C        
+                </button>
+                <button
+                    className='search-bar__fahrenheit-button'
+                    onClick={handleUnitsChange}
+                >
+                °F        
+                </button>
+            </div>
+        </div>
     );
-}
-
-SearchBar.protoType = {
-    submitSearch: PropType.func.isRequired,
 };
+
+
+
 
 export default SearchBar;
