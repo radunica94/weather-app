@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import './search-bar.scss';
-import { UilSearch } from '@iconscout/react-unicons';
 
-function SearchBar({setQuery, units,setUnits}){    
+function SearchBar({setQuery,units,setUnits}){    
     
     const[location, setLocation] = useState('');
     
     const handleUnitsChange = (e) => {
-        const selectedUnit = e.currentLocation.name;
+        const selectedUnit = e.currentTarget.name;
         if(units !== selectedUnit){
             setUnits(selectedUnit);
         }
@@ -19,23 +18,24 @@ function SearchBar({setQuery, units,setUnits}){
         }
     };
 
+
     return (
         <div className='container'>
             
             <div>                           
                 <input 
                     value={location}
-                    onChange={e => setLocation(e.currentLocation.value)}
+                    onChange={(e) => setLocation(e.currentTarget.value)}
                     type='text'
                     placeholder='Search for a Location'
                     className='search-bar__input'                        
                 />
-                <UilSearch 
+                <button 
                     className='search-bar__search-icon'
-                    onClick={handleSearchClick}
+                    onClick={handleSearchClick }
                     >
                     Search
-                </UilSearch>                       
+                </button>                       
             </div>
             <div>
                 <button

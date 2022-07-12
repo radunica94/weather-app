@@ -1,28 +1,47 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SearchBar from './components/search-bar';
-import TimeAndLocation from './components/time_and_location';
+import TimeAndLocation from './components/location';
 import Details from './components/details';
 import Forecast from './components/forecast';
-import {getCurrentWeather} from './api/weather-api';
-import getWeatherData from './api/weather-api';
+import getFormatCurrentWeather from './api/weather-api';
+import {getDaysForecast} from './api/weather-api';
 
 function App(){
 
-  const fetchWeather = async () => {
-    const data = getWeatherData("weather", {q: "Sibiu"});
-    console.log(data);
-  };
+  const[query,setQuery] = useState({q: "Sibiu"});
+  const[units,setUnits] = useState({units: "metric"});
+  const[weather,setWeather] = useState(null);
 
-  fetchWeather();
+  useEffect(() => {
+    const fetchWeather = async () => {
+      //const data = await getWeatherData("weather", {q: "Sibiu"});
+      await getFormatCurrentWeather({ ...query}).then((data) => {
+          setWeather(data);
+      });
+      
+    };
+    
+    fetchWeather();
+  },[query]);
+  
+ 
 
+ 
 
     return(
       <div className='container'>
-        <SearchBar/>
-        <TimeAndLocation/>
-        <Details/>
-        <Forecast title="Daily Forecast"/>
+        <SearchBar
+          setQuery={setQuery} units={units} setUnits={setUnits}
+        />
+          {weather && (
+            <div className='weather-container'>                               
+                <TimeAndLocation weather={weather}/>
+                <Details weather={weather}/>
+                <Forecast title="Daily Forecast" items={weather.daily}/>
+            </div>
+          )}
+        
       </div>
     );
 };
