@@ -21,8 +21,7 @@ function SearchBar({setQuery,units,setUnits}){
 
     return (
         <div className='container'>
-            
-            <div>                           
+            <div className='search-bar'>                           
                 <input 
                     value={location}
                     onChange={(e) => setLocation(e.currentTarget.value)}
@@ -31,26 +30,12 @@ function SearchBar({setQuery,units,setUnits}){
                     className='search-bar__input'                        
                 />
                 <button 
-                    className='search-bar__search-icon'
+                    className='search-bar__button'
                     onClick={handleSearchClick }
                     >
                     Search
                 </button>                       
-            </div>
-            <div>
-                <button
-                    className='search-bar__celsius-button'
-                    onClick={handleUnitsChange}
-                >
-                °C        
-                </button>
-                <button
-                    className='search-bar__fahrenheit-button'
-                    onClick={handleUnitsChange}
-                >
-                °F        
-                </button>
-            </div>
+            </div>           
         </div>
     );
 };

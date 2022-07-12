@@ -1,12 +1,15 @@
 import React from "react";
+import './location.scss';
 
 function TimeAndLocation({weather: {date,country,name,region,tz_id}}){
 
     return(
-        <div>            
-            <div>
-                <p>{`${name},${country}`}</p>            
-                <p>{`${region},${tz_id}`}</p>
+        <div className="container">            
+            <div className="container__city">
+                <div className="city__name">
+                    <p>{`${name}`}</p>            
+                    <p>{`${country},${tz_id}`}</p>
+                </div>
             </div>
         </div>
     );

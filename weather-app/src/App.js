@@ -5,7 +5,6 @@ import TimeAndLocation from './components/location';
 import Details from './components/details';
 import Forecast from './components/forecast';
 import getFormatCurrentWeather from './api/weather-api';
-import {getDaysForecast} from './api/weather-api';
 
 function App(){
 

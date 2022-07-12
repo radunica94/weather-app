@@ -1,0 +1,25 @@
+$box-shadow: 0px 0px 37px 35px rgba(0,0,0,0.1);
+$radius: 25% 25% 25% 25%; 
+$color: rgb(2, 17, 47);
+
+.container{
+    display: flex;
+}
+.container .container__city{
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;
+    padding: 50px;   
+    padding-bottom: 30px;
+    margin: 20px 0;  
+    background: transparent;  
+}
+.container .container__city .city__name{    
+    font-size: 20px;
+    box-shadow: $box-shadow;
+    border-radius: 100px;
+    color: $color;
+    border-radius: $radius;    
+    padding: 0 50px ;
+}

@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+ 
+}
+body{
+  background-image: url("../img/weather.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .App-logo {

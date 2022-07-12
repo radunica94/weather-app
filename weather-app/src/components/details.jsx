@@ -1,4 +1,5 @@
 import React from "react";
+import './details.scss';
 
 function Details({
     weather: {
@@ -17,38 +18,31 @@ function Details({
     }
 }){
     return(
-        <div>
-            <div>
-                <p>Details</p>
-            </div>
-            <div>
-                <p>Temperature:</p>
-                <p>{`${temp_c}`} °C</p>
-                <img src={`${icon}`} alt={`${icon}`}></img>
-            </div>
-            <div>
-                <div>
-                    <p>Precipitation index:</p>
-                    <p>{`${precip_in}`} in</p>
+        <div className='container'>
+            <div className="container__details">
+                <div className="details__temp">
+                    <p>Temperature: {`${temp_c}`} °C</p>
+                    <img src={`${icon}`} alt={`${icon}`}></img>                    
                 </div>
-                <div>
-                    <p>Wind:</p>
-                    <p>{`${wind_kph}`} kph</p>
+                <div className="details__left">
+                    <div>                    
+                        <p>Precipitation index: {`${precip_in}`} in</p>
+                    </div>
+                    <div>
+                        <p>Wind: {`${wind_kph}`} kph</p>
+                    </div>
+                    <div>
+                        <p>Pressure: {`${pressure_in}`} in</p>
+                    </div>
                 </div>
-                <div>
-                    <p>Pressure</p>
-                    <p>{`${pressure_in}`} in</p>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <p>Visibility:</p>
-                    <p>{`${vis_km}`} km</p>
-                </div>
-                <div>
-                    <p>UV Index:</p>
-                    <p>{`${uv}`}</p>
-                </div>
+                <div className="details__right">
+                    <div>
+                        <p>Visibility: {`${vis_km}`} km</p>
+                    </div>
+                    <div>
+                        <p>UV Index: {`${uv}`}</p>
+                    </div>
+                </div>   
             </div>
         </div>
     );
