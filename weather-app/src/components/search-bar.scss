@@ -1,0 +1,25 @@
+$color: rgb(2, 17, 47);
+$button_color: rgb(28, 69, 108);
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.container .search-bar .search-bar__input,
+.container .search-bar .search-bar__button,
+.container .search-bar .select__city{
+    background-color: white;
+    color: $button_color;
+    margin: 5px;
+}
+
+.container .search-bar{
+    display: flex;
+    flex-direction: row;    
+    justify-content: center; 
+    outline: 0;
+    color:$color;
+}
+

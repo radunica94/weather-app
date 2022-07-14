@@ -1,0 +1,40 @@
+$box-shadow: 0px 0px 37px 35px rgba(0,0,0,0.1);
+$radius: 10% 10% 10% 10%; 
+$color: rgb(191, 188, 188);
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+.container{
+    display: flex;
+    justify-content: center;
+    font-family: $font-family;
+}
+.container .container__forecast  {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;    
+    font-size: 25px;
+    color: $color;
+    box-shadow: $box-shadow;
+}
+
+.container .container__forecast .container__forecast__date{  
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    font-weight: bold;
+
+}
+.container .container__forecast .container__forecast__temp .details__temp__switch{    
+    width: 30px;
+    height: 20px;
+}
+.container .container__forecast .container__forecast__temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .container__forecast .container__forecast__temp .container__forecast__maxTemp,
+.container .container__forecast .container__forecast__temp .container__forecast__minTemp{
+    padding: 25px;
+}

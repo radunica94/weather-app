@@ -1,0 +1,81 @@
+$box-shadow: 0px 0px 37px 35px rgba(0,0,0,0.1);
+$radius: 10% 10% 10% 10%; 
+$color: rgb(191, 188, 188);
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+.container{
+    display: flex;
+    justify-content: center;
+    font-family: $font-family;
+}
+.container .container__details{
+    display: flex;
+    flex-direction: row; 
+    align-content: space-between;
+    justify-content: space-between;  
+    margin: auto;    
+    background: transparent; 
+    padding: 10px;
+}
+
+.container .container__details .details__temp
+{
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;
+    padding: 20px;    
+    color: $color;
+    box-shadow: $box-shadow;
+    border-radius: $radius;
+}
+.container .container__details .details
+{
+    display: flex;    
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 20px;    
+    color: $color;   
+}
+.container .container__details .details .details__precip,
+.container .container__details .details .details__wind,
+.container .container__details .details .details__pressure,
+.container .container__details .details .details__visibility,
+.container .container__details .details .details__uvIndex
+{
+    display: flex;    
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px; 
+    padding: 10px;   
+    color: $color;
+    box-shadow: $box-shadow;
+    border-radius: $radius;
+    gap: 0;
+}
+
+
+.container .container__details .container__details__switchButtons .details__switch
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+    color: $color;
+    align-items: center;
+}
+.container .container__details .container__details__switchButtons{
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.container .container__details .container__details__switchButtons .details__switch .details__switch__btn {
+    display: flex;
+    justify-content: flex-end;
+    width: 50px;
+    height: 25px;
+}

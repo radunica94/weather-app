@@ -1,0 +1,25 @@
+$box-shadow: 0px 0px 37px 35px rgba(0,0,0,0.1);
+$radius: 10% 10% 10% 10%; 
+$color: rgb(191, 188, 188);
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+.container{
+    display: flex;
+    $font-family: $font-family;
+}
+.container .container__location{
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    background: transparent;  
+}
+.container .container__location .city__name{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: $box-shadow;
+    color: $color;
+    border-radius: $radius;    
+    padding: 10px;
+}
