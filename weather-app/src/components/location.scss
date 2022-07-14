@@ -1,25 +1,25 @@
 $box-shadow: 0px 0px 37px 35px rgba(0,0,0,0.1);
-$radius: 25% 25% 25% 25%; 
-$color: rgb(2, 17, 47);
+$radius: 10% 10% 10% 10%; 
+$color: rgb(191, 188, 188);
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 .container{
     display: flex;
+    $font-family: $font-family;
 }
-.container .container__city{
+.container .container__location{
     display: flex;    
     flex-direction: column;
-    justify-content: space-around; 
     align-items: center;
-    padding: 50px;   
-    padding-bottom: 30px;
-    margin: 20px 0;  
     background: transparent;  
 }
-.container .container__city .city__name{    
+.container .container__location .city__name{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     box-shadow: $box-shadow;
-    border-radius: 100px;
     color: $color;
     border-radius: $radius;    
-    padding: 0 50px ;
+    padding: 10px;
 }

@@ -21,25 +21,33 @@ function Details({
         <div className='container'>
             <div className="container__details">
                 <div className="details__temp">
-                    <p>Temperature: {`${temp_c}`} °C</p>
+                    <p>Temperature:</p>
+                    <p> {`${temp_c}`} °C</p>
+                    <p> {`${temp_f}`} °F</p>
                     <img src={`${icon}`} alt={`${icon}`}></img>                    
                 </div>
-                <div className="details__left">
-                    <div>                    
-                        <p>Precipitation index: {`${precip_in}`} in</p>
+                <div className="details">
+                    <div className="details__precip">                    
+                        <p>Precipitation index: </p>
+                        <p>{`${precip_in}`} in</p>
+                        <p>{`${precip_mm}`} mm</p>
                     </div>
-                    <div>
-                        <p>Wind: {`${wind_kph}`} kph</p>
+                    <div className="details__wind">
+                        <p>Wind:</p>
+                        <p> {`${wind_kph}`} kph</p>
+                        <p> {`${wind_mph}`} mph</p>
                     </div>
-                    <div>
-                        <p>Pressure: {`${pressure_in}`} in</p>
+                    <div className="details__pressure">
+                        <p>Pressure:</p>
+                        <p> {`${pressure_in}`} in</p>
+                        <p> {`${pressure_mb}`} mb</p>
+                    </div>                
+                    <div className="details__visibility">
+                        <p>Visibility:</p>
+                        <p> {`${vis_km}`} km</p>
+                        <p> {`${vis_miles}`} miles</p>
                     </div>
-                </div>
-                <div className="details__right">
-                    <div>
-                        <p>Visibility: {`${vis_km}`} km</p>
-                    </div>
-                    <div>
+                    <div className="details__uvIndex">
                         <p>UV Index: {`${uv}`}</p>
                     </div>
                 </div>   

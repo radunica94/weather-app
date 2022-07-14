@@ -1,6 +1,5 @@
-
 $color: rgb(2, 17, 47);
-
+$button_color: rgb(28, 69, 108);
 
 .container{
     display: flex;
@@ -8,23 +7,20 @@ $color: rgb(2, 17, 47);
     flex-direction: column;
     gap: 30px;
 }
+.container .search-bar .search-bar__input,
+.container .search-bar .search-bar__button,
+.container .search-bar .select__city{
+    background-color: white;
+    color: $button_color;
+    margin: 5px;
+}
+
 .container .search-bar{
     display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    height: 20px;
-    width: 100%;
-    padding: 2px 23px 2px 30px;
-    margin-top: 40px;
+    flex-direction: row;    
+    justify-content: center; 
+    margin-top: 20px;
     outline: 0;
     color:$color;
-    background: transparent;
 }
-.container .search-bar .search-bar__input{
-    width: 300px;
-    height: 25px;
-}
-.container .search-bar .search-bar__button{
-    height: 31px;
-    width: 70px;
-}
+

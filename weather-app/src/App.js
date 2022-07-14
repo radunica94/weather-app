@@ -9,35 +9,34 @@ import getFormatCurrentWeather from './api/weather-api';
 function App(){
 
   const[query,setQuery] = useState({q: "Sibiu"});
-  const[units,setUnits] = useState({units: "metric"});
   const[weather,setWeather] = useState(null);
 
   useEffect(() => {
     const fetchWeather = async () => {
       //const data = await getWeatherData("weather", {q: "Sibiu"});
       await getFormatCurrentWeather({ ...query}).then((data) => {
-          setWeather(data);
+          setWeather(data);          
       });
       
     };
     
     fetchWeather();
+    
   },[query]);
   
  
-
- 
-
     return(
       <div className='container'>
         <SearchBar
-          setQuery={setQuery} units={units} setUnits={setUnits}
+          setQuery={setQuery} 
         />
-          {weather && (
+          {weather && ( 
             <div className='weather-container'>                               
                 <TimeAndLocation weather={weather}/>
-                <Details weather={weather}/>
-                <Forecast title="Daily Forecast" items={weather.daily}/>
+                <Details weather={weather}/>                 
+                {/* <Forecast weather={weather[0]}/> */}
+                <Forecast weather={weather[1]}/>
+                <Forecast weather={weather[2]}/>
             </div>
           )}
         
