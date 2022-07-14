@@ -22,8 +22,7 @@ function App(){
     
     fetchWeather();
     
-  },[query]);
-  
+  },[query]);  
  
     return(
       <div className='container'>

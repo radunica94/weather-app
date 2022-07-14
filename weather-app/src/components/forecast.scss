@@ -20,4 +20,7 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 .container .container__forecast .forecast__date{
     font-weight: bold;
 }
-
+.container .container__forecast .container__forecast__temp .details__temp__switch{    
+    width: 30px;
+    height: 20px;
+}
