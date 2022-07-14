@@ -10,16 +10,23 @@ import MenuItem from '@mui/material/MenuItem';
 function SearchBar({setQuery}){    
     
     const[location, setLocation] = useState('');
-   
+
     const handleSearchClick = () => {
         if(location !== ''){
             setQuery({q: location});
         }
     };
-
+    
     return (
         <div className='container'>            
-            <div className='search-bar'>  
+            <div className='search-bar'>                 
+                <TextField 
+                    value={location}
+                    onChange={(e) => setLocation(e.currentTarget.value)} 
+                    type='text'
+                    placeholder='Search for a Location'
+                    className='search-bar__input'              
+                />
                 <FormControl className='select__city'>                    
                     <Select
                         value={location}
@@ -39,14 +46,7 @@ function SearchBar({setQuery}){
                         <MenuItem value={'Bucarest'}>Bucarest</MenuItem >
                         <MenuItem value={'Ottawa'}>Ottawa</MenuItem >                        
                     </Select>
-                </FormControl>                       
-                <TextField 
-                    value={location}
-                    onChange={(e) => setLocation(e.currentTarget.value)}
-                    type='text'
-                    placeholder='Search for a Location'
-                    className='search-bar__input'                      
-                />
+                </FormControl>                                    
                 <Button 
                     className='search-bar__button'
                     variant="contained"

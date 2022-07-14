@@ -39,58 +39,81 @@ function Details({
     const toggler_visibility = () => {
         toggle_vis? setToggle_vis(false) : setToggle_vis(true);
     }
+   
     return(
         <div className='container'>
-            <div className="container__details">
+            <div className="container__details">                
                 <div className="details__temp">
                     <p>Temperature:</p>
                     <img src={`${icon}`} alt={`${icon}`}></img>
                     {toggle_temp? <p>{temp_f}°F</p> : <p>{temp_c}°C</p>}
-                    <Switch
-                        checkedChildren="°F" unCheckedChildren="°C"
-                        onClick={toggler_temp}
-                        className="details__temp__switch"
-                    />                   
+                                       
                 </div>
                 <div className="details">
                     <div className="details__precip">                    
-                        <p>Precipitation index: </p>
+                        <p>Precipitation Index: </p>
                         {toggle_precip? <p>{`${precip_in}`} in</p> : <p>{`${precip_mm}`} mm</p>} 
-                        <Switch
-                        checkedChildren="in" unCheckedChildren="mm"
-                        onClick={toggler_precip_index}
-                        className="details__temp__switch"
-                        />                                               
+                                                                     
                     </div>
                     <div className="details__wind">
                         <p>Wind:</p>
                         {toggle_wind? <p> {`${wind_kph}`} kph</p> : <p> {`${wind_mph}`} mph</p>}
-                        <Switch
-                        checkedChildren="kph" unCheckedChildren="mph"
-                        onClick={toggler_wind}
-                        className="details__temp__switch"
-                        />
+                        
                     </div>
                     <div className="details__pressure">
                         <p>Pressure:</p>
                         {toggle_pressure? <p> {`${pressure_in}`} in</p> : <p> {`${pressure_mb}`} mb</p>}
-                        <Switch
-                        checkedChildren="in" unCheckedChildren="mb"
-                        onClick={toggler_pressure}
-                        className="details__temp__switch"
-                        /> 
+                        
                     </div>                
                     <div className="details__visibility">
                         <p>Visibility:</p>
                         {toggle_vis? <p> {`${vis_km}`} km</p> : <p> {`${vis_miles}`} miles</p>} 
-                        <Switch
-                        checkedChildren="km" unCheckedChildren="miles"
-                        onClick={toggler_visibility}
-                        className="details__temp__switch"
-                        /> 
+                        
                     </div>
                     <div className="details__uvIndex">
                         <p>UV Index: {`${uv}`}</p>
+                    </div>
+                </div>               
+                <div className="container__details__switchButtons">
+                    <div className="details__switch">
+                        <p>Temp:</p>
+                        <Switch
+                            checkedChildren="°F" unCheckedChildren="°C"
+                            onClick={toggler_temp}
+                            className="details__switch__btn"
+                        />
+                    </div>
+                    <div className="details__switch">
+                        <p>Precipi Index:</p>
+                        <Switch
+                            checkedChildren="in" unCheckedChildren="mm"
+                            onClick={toggler_precip_index}
+                            className="details__switch__btn"
+                        />
+                    </div>
+                    <div className="details__switch">
+                        <p>Wind:</p>
+                        <Switch
+                            checkedChildren="kph" unCheckedChildren="mph"
+                            onClick={toggler_wind}
+                            className="details__switch__btn"
+                        />
+                    </div>
+                    <div className="details__switch">
+                        <p>Pressure:</p>
+                        <Switch
+                            checkedChildren="in" unCheckedChildren="mb"
+                            onClick={toggler_pressure}
+                            className="details__switch__btn"
+                        /> 
+                    </div>  
+                    <div className="details__switch">
+                        <p>Visibility:</p>
+                        <Switch
+                            checkedChildren="km" unCheckedChildren="miles"
+                            onClick={toggler_visibility}
+                            className="details__switch__btn"
+                        /> 
                     </div>
                 </div>   
             </div>
