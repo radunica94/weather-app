@@ -17,10 +17,24 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     box-shadow: $box-shadow;
 }
 
-.container .container__forecast .forecast__date{
+.container .container__forecast .container__forecast__date{  
+    display: flex;
+    justify-content: center;
+    align-items: center;  
     font-weight: bold;
+
 }
 .container .container__forecast .container__forecast__temp .details__temp__switch{    
     width: 30px;
     height: 20px;
+}
+.container .container__forecast .container__forecast__temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .container__forecast .container__forecast__temp .container__forecast__maxTemp,
+.container .container__forecast .container__forecast__temp .container__forecast__minTemp{
+    padding: 25px;
 }

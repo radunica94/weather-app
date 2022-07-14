@@ -19,29 +19,34 @@ function Forecast({
     const toggler_minTemp = () => {
         toggle_minTemp? setToggle_minTemp(false) : setToggle_minTemp(true);
     }
+    let dateObj = new Date(date);
+    let weekday = dateObj.toLocaleString('en-US', {weekday: 'long'});
+    console.log(weekday);
     return(
         <div className="container">
             <div className="container__forecast">                                  
                 <div>
-                    <div className="forecast__date">
-                        <p>{`${date}`}</p>
+                    <div className="container__forecast__date">
+                        <p>{`${weekday}`} , {`${date}`}</p>
                     </div>
                     <div className="container__forecast__temp">
-                        <div>
+                        <div className="container__forecast__maxTemp">
                             <p>Max Temperature:</p>
+                            {toggle_maxTemp? <p>{`${maxtemp_f}`} °F</p>  : <p>{`${maxtemp_c}`} °C</p> } 
                             <Switch
+                            checkedChildren="°F" unCheckedChildren="°C"
                             onClick={toggler_maxTemp}
                             className="details__temp__switch"
-                            />
-                            {toggle_maxTemp? <p>{`${maxtemp_f}`} °F</p>   : <p>{`${maxtemp_c}`} °C</p> }                                               
+                            />                                                                          
                         </div>
-                        <div>
+                        <div className="container__forecast__minTemp">
                             <p>Min Temperature:</p>
+                            {toggle_minTemp? <p>{`${mintemp_f}`} °F</p>      : <p>{`${mintemp_c}`} °C</p>  }
                             <Switch
+                            checkedChildren="°F" unCheckedChildren="°C"
                             onClick={toggler_minTemp}
                             className="details__temp__switch"
-                            />
-                            {toggle_minTemp? <p>{`${mintemp_f}`} °F</p>      : <p>{`${mintemp_c}`} °C</p>  }                        
+                            />                
                         </div>  
                     </div>                  
                 </div>   
